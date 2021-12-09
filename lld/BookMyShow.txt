@@ -1,0 +1,120 @@
+class BMSService{
+	List<CinemaHall> cinmas;
+	List<Movie> getMovies(Date date,  String city);
+}
+
+class CinemaHall{
+	String cinemaHallId;
+	String cinemaHallName;
+	Address address;
+	List<Audi> audis;
+	public Map<String, Movie> getMovies(Date date);
+	public Map<String, Showclass> getShows(Date date);
+
+
+
+}
+
+class Address{
+	
+	String city;
+	String street;
+	String state;
+	int pincode;
+}
+
+public class Audi{
+	String audiId;
+	String audiName;
+	List<Shows> shows;
+	int totalSeats;
+	
+}
+
+class Show{
+	String showId;
+	Movie movie;
+	DateTime startTime;
+	DateTime endDate;
+	List<Seat>  showSeats;
+}
+
+class Seat{
+	String seatId;
+	SeatType seatType;
+	SeatStatus;
+	Double price;
+}
+
+class Movie{
+	String name;
+	Date releaseDate;
+	Genre genre;
+	String Langauge;
+	Map<String, List<Show>> cityShowMap;
+}
+
+class SeatType{
+	String DELUX, VIP,Economy'
+
+}
+enum Genre{
+	SCI_FI, DRAMA, COMEDY, ACTION
+} 
+
+class User{
+	String userId;
+	Search  obj;
+}
+
+class SystemUser extends User{
+	Account account;
+	String name;
+	String email;
+	Sting phone;
+
+}
+
+class Memeber extends SystemUser{
+	Booking makeBooking(Movie);
+	List<Booking> getBookings();
+} 
+
+class Admin extends SystemUser{
+	addMovie(Movie);
+	addShow(Show);
+}
+
+
+class Search{
+	public List<Movie> searchMovieByName(String name);
+	public List<Movie> serachMovieByGenre(Genre genre);
+	public List<Movie> serachMovieByDate(Date date);
+	public List<Movie> serachMovieByDate(String lang);
+
+}
+
+class Booking{
+	String bookingId;
+	
+	Show show;
+	Audi audi;
+	List<Seat> bookedSeats;
+	BookingStatus bookingStatus;
+	Payment Payment;
+	int totalAmount;
+
+}
+
+class Payment{
+	String paymentId;
+	PAymentStatus paymentStatus;
+	double amount;
+}
+
+enum BookingStatus{
+	Requested, booked, pending, cancelled;
+}
+enum PaymentStatus{
+	REQUESTED ,CONFIRMED, PENDING ;
+}
