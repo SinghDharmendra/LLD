@@ -1,0 +1,112 @@
+//Parking Lot Problem
+
+public class ParkingLot{
+	String name;
+	String parkingLotId;
+	Address address;
+	Map<String,  ParkingFloor> floors;
+	Map<String, EntrencePanel> enterancePanel;
+	Map<String, ExitPanel> exitPanels;
+	ParkingRate parkingRate;
+
+	private static ParkingLot instance=null;
+
+	private ParkingLot(){
+
+	}
+	public static ParkingLot getInstance(){
+		if(instance==null){
+			instance = new ParkingLot();
+		}
+		return instance;
+	}
+
+}
+class Address{
+	String street;
+	String city;
+	String state;
+	int pin;
+}
+ParkingFloor{
+	String ParkingFloorId;
+	String floorName;
+
+	ParkingDisplayBoard parkingDisplayBoard;
+	int totalTwoWheelerSlots;
+	int totalFourWheelerSlot;
+	int total LargeVehicleSlot;
+	Map<String , CompactSpot> compactSpots;
+	Map<String, LargeSpot> largeSpots;
+	Map<String, HandicappedSpot> handicappedSpot;
+
+	addParkingSpot(ParkingSpot parkingSpot);
+	assignParkingSpot(Vehicle vehicle , Parking Spot);
+
+
+}
+
+class Spot{
+	String spotId;
+	SpotType spotType;
+	boolean isAvailable;
+
+}
+class Vehicle {
+	Vehicle Type;
+	ParkingTicket parkingTicket;
+
+	addTicket(Ticket ticket);
+}
+
+
+class Car extends Vehicle {
+	
+}
+class Van extends Vehicle{
+	
+}
+class MotorCycle extends Vehicle{
+	
+}
+
+ParkingTicket{
+	String ticketId;
+	DateTime generatedTime;
+	ParkingTicket status;
+}
+enum SpotType{
+	COMPACT, LARGE, HANDICAPPED, MOTORCYCLE;
+}
+
+class Person{
+	String name;
+	Address address;
+	Account account;
+}
+class Account{
+	String username;
+	String password;
+	String email;
+}
+
+class Admin extends Person{
+	addEnterancePanel(EnterancePanel enterancePanel);
+	addDiplayBoard(DisplayBoard displayBoard);
+	addExitPanel(ExitPanel exitPanel);
+	addParkingFloor(ParkingFloor parkingFloor);
+	addAprkingAttendent(ParkingAttendant parkingAttendant);
+}
+class ParkingAttendent extends Person{
+	boolean processTicket(Ticket ticket);
+}
+
+class ParkingRate{
+	Map<Integer, Double> hourlyCharges ;
+
+}
+
+enum ParkingTicketStatus{
+	ACTIVE, PAID, LOST; 
+}
+
