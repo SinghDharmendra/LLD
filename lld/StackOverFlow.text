@@ -1,0 +1,101 @@
+Stack OverFlow LLD
+
+// ENUM Constants
+public enum AccountStatus{
+	ACTIVE, BLOCKED, ON_HOLD, DELETED;
+}
+public class enum QuestionStatus{
+	OPEN, CLOSED, ANSWERED;
+}
+public enum QuestionClosingComment{
+	DUPLIACTE,
+	ANSWERED,
+	TO_MUCH_SCOPE,
+	NOT_CLEAR
+}
+public enum VoteType{
+	UPVOTE, DOWNVOTE
+}
+
+
+public class User{
+	String guestId;
+	Search obj;
+	List<Question> serachQuestion(String searchString);
+}
+
+public class Member extends User{
+	Account account;
+	List<Badge> badges;
+
+	void addQuestion(Question question);
+	void addAnswer(Question question , Answer answer);
+	addComment(Question question , Comment comment);
+	updateQuestion(Question question,
+	vote(Entity entity, VoteType voteType);
+	void addTag(Question question , Tag tag);
+
+
+
+	
+}
+public class Moderator extends Member{
+	deleteQuestion(Question question);
+	revertDelete(Question question);
+}
+public class Admin extend Member{
+	blockMember(Member member);
+	unblockMember(Member member )
+
+}
+public class Badge{
+  String badgeId;
+  String badgeDescription;
+
+}
+
+public class Entity{
+	List<Comment> comments;
+	Map<VoteType, Integer> voteCounter;
+
+	addComment(Comment comment);
+	voteEntity(VoteType voteType  );
+
+	
+}
+
+public class Question extends Entity{
+	List<EditHistory> edits;
+	String questionId;
+	String questionText;
+	List<Tag> tags;
+	List<Answer> answers;
+	
+	Member author;
+
+}
+
+public class Answer extends Entity{
+	String answer;
+	boolean isAccepted;
+	boolean addAnswer(Question question);
+
+}
+public class Comment extends Entity{
+	String commentId;
+	String comment;
+
+}
+
+public class EditHistory{
+	String editHistoryId;
+	Member creator;
+	Question prev;
+	Question current;
+}
+public class Tag{
+	String tagId;
+	String tagName;
+	String desc;
+}
+
